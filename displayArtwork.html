@@ -17,219 +17,125 @@
   </style>
 </head>
 <body>
+	<!-- First, some introductory photos of artwork I've created -->
+	<!-- Introduced via Carousel plugin : cycle thru the elements -->
+	<!-- Immediate animations on page load with data-ride -->
 
-	<!-- Jumbotron beginning -->
-	<div class="container mt-3">
-		<h1 style="text-align: center">ATTENTION READERS!</h1>
-		<div class="mt-4 p-5 bg-secondary text-white text-center rounded">
-			<p>Let's get to digesting the blog content posted online!</p>
+	<div id="Soft-Pastels-Artwork" class="container-fluid">
+		<h1>Soft-Pastels-Artwork</h1>
+		<p> The first pieces I've made : using soft pastels!</p>
+	</div>
+
+	<div id="Oil-Pastels-Artwork" class="container-fluid">
+		<h1>Oil-Pastels-Artwork</h1>
+		<p> The second type of art medium I explored : oil-pastels!</p>
+	</div>
+
+	<!-- Div elements make up enough of a webpage -> do we need more organizational units? -->
+	<div id="Oil-Canvas-Artwork" class="container-fluid">
+		<h1>Oil-Canvas-Artwork</h1>
+		<p> And now onto the world of oil on canvas : more vibrancy and more photorealism!</p>
+	</div>
+
+	<!-- CHARCOALS -->
+	<div id="Charcoals-Artwork" class="container-fluid">
+		<h1>Charcoals-Artwork</h1>
+		<p>Getting into the dominion of black-and-white drawings with Charcoals.</p>
+		<div id="charcoalsCarousel" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#charcoalsCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#charcoalsCarousel" data-slide-to="1"></li>
+				<li data-target="#charcoalsCarousel" data-slide-to="2"></li>
+				<li data-target="#charcoalsCarousel" data-slide-to="3"></li>
+			</ol>
+			<!-- Wrappers for slides -->
+			<div class="carousel-inner">
+				<div class="item">
+					<img src="CHARCOAL_DRAWINGS/Charcoals_All.jpg" alt="All Charcoals" class="carouselImage">
+					<div class="carousel-caption">
+						<h3>All charcoals under display.</h3>
+					</div>
+				</div>
+				<div class="item">
+					<img src="./CHARCOAL_DRAWINGS/Intro_To_Gradients.jpg" alt="Intro_To_Gradients" class="carouselImage">
+					<div class="carousel-caption">
+						<h3>An introduction to working with gradients.</h3>
+					</div>
+				</div>
+				<div class="item active">
+					<img src="./CHARCOAL_DRAWINGS/A_Visualized_Cone.jpg" alt="A Cone" class="carouselImage">
+					<div class="carousel-caption">
+						<h3>A visualized cone.</h3>
+					</div>
+				</div>
+				<div class="item">
+					<img src="CHARCOAL_DRAWINGS/A_Visualized_Sphere.jpg" alt="A Sphere" class="carouselImage">
+					<div class="carousel-caption">
+						<h3>A sphere.</h3>
+					</div>
+				</div>
+			</div>	
+			<!-- Left and right controls -->
+			<a class="left carousel-control" href="#charcoalsCarousel" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#charcoalsCarousel" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+
+	</div>
+
+	<div id="Acrlyic-Artwork" class="container-fluid">
+		<h1>Acrlyic-Artwork</h1>
+		<!-- woah font spacing -->
+		<p> The latest installments of artwork : a foray into acrlyic painting!</p>
+		<div id="watercolorCarousel" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#watercolorCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#watercolorCarousel" data-slide-to="1"></li>
+				<li data-target="#watercolorCarousel" data-slide-to="2"></li>
+			</ol>
+			<!-- Wrappers for slides -->
+			<div class="carousel-inner">
+				<div class="item">
+					<img src="LandscapeAcrylic.jpg" alt="Landscape" class="carouselImage">
+					<div class="carousel-caption">
+						<h3>Oak-Savannah Landscape ( Acrlyic ) </h3>
+						<p> First acrylic installment.</p>
+					</div>
+				</div>
+				<div class="item active">
+					<img src="CaliBeachAcrylic.jpg" alt="CaliBeach" class="carouselImage">
+					<div class="carousel-caption">
+						<h3>WildFlowers on Beach ( Acrlyic )</h3>
+						<p> Second acrylic installment.</p>
+					</div>
+				</div>
+				<div class="item">
+					<img src="TropicalBeachAcrylic.jpg" alt="TropicalBeachAcrylic" class="carouselImage">
+					<!-- Captions enable the paying of attention -->
+					<div class="carousel-caption">
+						<h3>Tropical Island with Waves ( Acrylic ) </h3>
+						<p> Third acrylic installment.</p>
+					</div>
+				</div>
+			</div>	
+			<!-- Left and right controls -->
+			<a class="left carousel-control" href="#watercolorCarousel" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#watercolorCarousel" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+				<span class="sr-only">Next</span>
+			</a>
 		</div>
 	</div>
-	<!--  -->
-	<!-- Bootstrap will auto handle layout across devices -->
-	<!-- Stacking good for mobile/small devices -->
-	<div class="container-fluid mt-3">
-		<div class="row">
-			<div class="col-sm"></div>
-		</div>
-	</div>
-	<!-- TODO : Future set up javascript to programatically dispaly this information. -->
-	<!-- Scope down : just show 3 cards ( for 3 dates ) at the moment -->
-	<aside id="1">
-		<!-- First, some introductory photos of landscapes I've enjoyed -->
-		<!-- Introduced via Carousel plugin : cycle thru the elements -->
-		 <!-- Immediate animations on page load with data-ride -->
-		<div class="container">
-			<div id="watercolorCarousel" class="carousel slide" data-ride="carousel">
-				<!-- Indicators -->
-				<ol class="carousel-indicators">
-					<li data-target="#watercolorCarousel" data-slide-to="0" class="active"></li>
-					<li data-target="#watercolorCarousel" data-slide-to="1"></li>
-					<li data-target="#watercolorCarousel" data-slide-to="2"></li>
-				</ol>
-
-				<!-- Wrappers for slides -->
-				 <!-- inline elements, which can sit next to each other -->
-				<!-- but then centered -->
-				<div class="carousel-inner">
-					<div class="item">
-						<img src="LandscapeAcrylic.jpg" alt="Landscape" class="carouselImage">
-						<div class="carousel-caption">
-							<h3>Oak-Savannah Landscape ( Acrlyic ) </h3>
-							<p> First acrylic installment.</p>
-						</div>
-					</div>
-
-					<div class="item active">
-						<img src="CaliBeachAcrylic.jpg" alt="CaliBeach" class="carouselImage">
-						<div class="carousel-caption">
-							<h3>WildFlowers on Beach ( Acrlyic )</h3>
-							<p> Second acrylic installment.</p>
-						</div>
-					</div>
-
-					<div class="item">
-						<img src="TropicalBeachAcrylic.jpg" alt="TropicalBeachAcrylic" class="carouselImage">
-						<!-- Captions enable the paying of attention -->
-						<div class="carousel-caption">
-							<h3>Tropical Island with Waves ( Acrylic ) </h3>
-							<p> Third acrylic installment.</p>
-						</div>
-					</div>
-				</div>	
-				
-				<!-- Left and right controls -->
-				<a class="left carousel-control" href="#watercolorCarousel" data-slide="prev">
-					<span class="glyphicon glyphicon-chevron-left"></span>
-					<span class="sr-only">Previous</span>
-				</a>
-				<a class="right carousel-control" href="#watercolorCarousel" data-slide="next">
-					<span class="glyphicon glyphicon-chevron-right"></span>
-					<span class="sr-only">Next</span>
-				</a>
-			</div>
-		</div>
-
-
-		<!-- The actual blog content -->
-		<div id="accordianPostsByDate">
-			<div class="card">
-				<div class="card-header bg-primary text-white">
-					<a class="btn" data-bs-toggle="collapse" href="#collapseOne">
-						Posts by date ( JUL 2024 )
-					</a>
-				</div>
-				<div id="collapseOne" class="collapse show" data-bs-parent="#accordianPostsByDate">
-					<div class="card-body">
-						<h6 class="card-title"> ( JUL 2024 )</h4>
-						<!-- Removing bottom margin matters? -->
-						<p class="card-text">To fill in</p>
-					</div>
-					<div class="card-footer">Footer</div>
-				</div>
-			</div>
-			<!-- Organization and page behavior extensibility -->
-			<!-- Collapsibility useful for user engagement and space saving -->
-			<div class="card">
-				<div class="card-header bg-primary text-white">
-					<a class="btn" data-bs-toggle="collapse" href="#collapseTwo">
-						Posts by date ( JUN 2024 )
-					</a>
-				</div>
-				<div id="collapseTwo" class="collapse show" data-bs-parent="#accordianPostsByDate">
-					<div class="card-body">
-						<!-- Heading els in cards for card organization -->
-						<h6 class="card-title"> ( JUN 2024 )</h4>
-						<!-- Removing bottom margin matters? -->
-						<p class="card-text">To fill in</p>
-					</div>
-					<div class="card-footer">Footer</div>
-				</div>
-			</div>
-			<div class="card">
-				<div class="card-header bg-primary text-white">
-					<a class="btn" data-bs-toggle="collapse" href="#collapseThree">
-						Posts by date ( MAY 2024 )
-					</a>
-				</div>
-				<div id="collapseThree" class="collapse show" data-bs-parent="#accordianPostsByDate">
-					<div class="card-body">
-						<div class="container">
-							<div class="media">
-								<div class="media-left">
-									<img src="Tropical_Beach.jpg" class="media-object blogImageStyle">
-								</div>
-								<div class="media-body">
-									<h4 class="media-heading">First Blog Title</h3>
-										<p>Future media text that will be inserted</p>
-								</div>
-							</div>
-							<hr>
-			
-							<div class="media">
-								<div class="media-left">
-									<img src="Tropical_Beach.jpg" class="media-object blogImageStyle">
-								</div>
-								<div class="media-body">
-									<h4 class="media-heading">Second Blog Title</h3>
-									<p>Future media text that will be inserted</p>
-								</div>
-							</div>
-							<hr>
-			
-							<div class="media">
-								<div class="media-left">
-									<img src="Tropical_Beach.jpg" class="media-object blogImageStyle">
-								</div>
-								<div class="media-body">
-									<h4 class="media-heading">Third Blog Title</h3>
-									<p>Future media text that will be inserted</p>
-								</div>
-							</div>
-							<hr>
-						</div>
-					</div>
-					<div class="card-footer">Footer</div>
-				</div>
-			</div>
-
-			<!-- Make basic blog posts, but outside of collapsing cards for now -->
-			<!-- Single media image for the blog -->
-			 <!-- left-aligned, center-aligned media objects -->
-			<hr>
-
-		</div>
-	</aside>
-	<main id="2">
-		<!-- MIddle-floated content -->
-		<!-- <div class="photoExpand container mt-3"> -->
-			<!-- Post #1 ( Default show the first )  -->
-			<!-- <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#blogPost1" style="display:block">
-				<span class="spinner-border spinner-border-sm" disabled></span>
-				Loading ...
-			</button>
-			<div id="blogPost1" class="collapse show">
-				Future text for blog post number one
-			</div> -->
-			<!-- Post #2 -->
-			<!-- <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#blogPost2" style="display:block">
-				<span class="spinner-border spinner-border-sm" disabled></span>
-				Loading ...
-			</button>
-			<div id="blogPost2" class="collapse">
-				Future text for blog post number two
-			</div> -->
-			<!-- Post #3 -->
-			<!-- <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#blogPost3" style="display:block">
-				<span class="spinner-border spinner-border-sm" disabled></span>
-				Loading ...
-			</button>
-			<div id="blogPost3" class="collapse">
-				Future text for blog post number three
-			</div> -->
-		<!-- </div> -->
-	</main>
-	<!-- <aside id="3">
-		Right-floated aside content.
-	</aside> -->
 	<footer class="container-fluid footer text-center">
-		<!-- Don't navigate to other pages NOR reload current page ( save on footprint ) -->
-		<!-- fixed top and bottom don't work as expected -->
-		<div class="container-fluid fixed-bottom">
-			<p>Future blogpost footer</p>
-            <!-- Build this pagination first ( if to many pages to display )  -->
-            <!-- <ul class="pager">
-                <li class="pager previous"><a href="#">Previous</a></li>
-                <li class="next"><a href="#">Next</a></li>
-            </ul> -->
-			<ul class="pagination pagination-sm justify-content-center">
-				<li class="page-item active"><a class="page-link" href="#">Previous</a></li>
-				<li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
-				<li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-				<li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
-				<li class="page-item"><a class="page-link" href="javascript:void(0);">4</a></li>
-				<li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
-			</ul>
-		</div>
 	</footer>
 </body>
