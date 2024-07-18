@@ -1,17 +1,25 @@
-<!-- This HTML file serves as a first to a static webpage : it's a basic "About Me" -->
-<!-- V1 : not scripted ( add CSS later ) -->
-<!-- Gaaah reopen chrome/vscode and show in browser works now??? -->
-<!-- W3C standards : go lowercase -->
+<!-- A bootstrapped-powered single HTML/CSS/JS webpage : a basic "About Me" -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8"/>
+        <!-- Follow device's screen width -->
+        <!-- set initial zoom level on page first load -->
         <meta name="viewport" content="width=device-width,initial-scale=1"/>
         <meta name="author" content="Hari Sridhar"/>
         <meta name="description" content="A Introduction Page to Hari Sridhar"/>
+        <!-- Import bootstrap libraries from Max CDNs -->
+        <!-- Add icon library -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+         <!-- Montserrat font CSS stylesheet -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <!-- Minimizes scripts from CDNs ( static content delivery )  -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <Title>Hari Sridhar: About Me</Title>
         <style>
-            body { background-color:yellow; }
+            body { background-color:orange; }
             body p { font-family: 'Courier', Courier, monospace;}
             body ol li { font-family: 'Courier', Courier, monospace;}
             body ul li { font-family: 'Courier', Courier, monospace;}
@@ -19,7 +27,7 @@
             footer { background-color: purple; height: 100px; margin: auto; }
             .h1HeaderStyle { color:blue; text-align: center;}
             .h2HeaderStyle { color:blue;}
-            .selfImage { width:200px; height:200px; 
+            .selfImage { width:350px; height:350px; 
                         align-content: center; margin: auto; display: block;
                         object-fit: cover; border-radius: 50%; }
             ul.navigBar {
@@ -58,12 +66,62 @@
             .active {
                 background-color: green;
             }
+
+            .fa {
+            padding: 20px;
+            font-size: 30px;
+            width: 50px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+            }
+
+            .fa:hover {
+                opacity: 0.7;
+            }
+
+            .fa-facebook {
+            background: #3B5998;
+            color: white;
+            }
+
+            .fa-linkedin {
+                background: #007bb5;
+                color: white;
+                }
+
+            .fa-youtube {
+            background: #bb0000;
+            color: white;
+            }
+
+            .fa-instagram {
+            background: #125688;
+            color: white;
+            }
+
+            .fa-twitter {
+                background: #55ACEE;
+                color: white;
+            }
+
+            /* For fixed width containers */
+            .container {
+                padding: 0px
+            }
+
+            /* Padding for container-fluid : more space for text */
+            .container-fluid {
+                padding-top : 20px;
+                padding-bottom: 20px;
+            }
+
         </style>
     </head>
     <!-- Webpage horizontal navigation bar -->
     <header>
         <!-- nav bar as list of links -->
-        <nav>
+        <nav class="navbar navbar-default">
             <ul class="navigBar">
                 <li class="liNavigBar active"><a href="#introduction">INTRO</a></li>
                 <li class="liNavigBar"><a href="#WorkExperiences">WORK_EXPERIENCES</a></li>
@@ -77,77 +135,117 @@
         <main>
             <article>
                 <!-- page layout efficient ( browser allocs mem ) -->
-                <section><a name="introduction"><h1 class="h1HeaderStyle">A Brief Introduction</h1></a>        
-                    <img src="Image_Sridhar_Hari.jpg" class="selfImage" alt="An image of Hari Sridhar.">
-                    <p style="font-family: courier; font-size: 200%;"><b>System.out.println(Hello World!)</b></p>
-                    <p>My name is Hari Sridhar, I was born in New Jersey, I am 28 years old, and I grew up in Woodbridge, Virginia about 30 minutes south of Washington D.C. In the past, I've primarily worked as a software engineer
-                    across an array of companies and organizations. I am currently based out in San Francisco, CA, and I've spent time across the country, from the D.C. Metro Area, Austin Texas, Seattle, Washington, and finally San Francisco, CA.  
-                    I'm incredibly motivated towards working as a software engineer, and I want to both grow other engineers into good engineers as well as create and deliver products 
-                    that will positively impact the lives of those using them. </p>
-                </section>
-                <section><a name="WorkExperiences"><h2 class="h2HeaderStyle"> My past professional experiences</h2></a>        
-                    <p>
-                        Some of my past experiences include internships at the following companies back as an undergraduate student : 
-                    </p>
-                    <ol>
-                        <li>Intel</li>
-                        <li>Amazon</li>
-                    </ol>
-                    <p>
-                        And full-time professional employment at the following companies:
-                    </p>
-                    <ol>
-                        <li>S.W.I.F.T. srcl ( Nov 2018 - Dec 2021 ) </li>
-                        <li>Google ( Jan 2022 - Jan 2023 ) </li>
-                        <li>Capital One ( May 2023 - Mar 2024 ) </li>
-                    </ol>
-                    <h2 class="h2HeaderStyle"> My Side Hobbies </h2>
-                    <p>Outside of work ( when I am not to busy with other things going on ), I like spending quality time on the following activities :</p>
-                    <ol>
-                        <li>Exploring new restaurants : I a huge foodie!</li>
-                        <li>Cooking and experimenting with new cuisines! Favorites include Mediterranean and Mexican.</li>
-                        <li>Spending time on google maps.</li>
-                        <li>Playing games : board games, card games, video games - you name it, I'm down for it!</li>
-                    </ol>
-                </section>
-                <section><a name="OtherInterests"><h2 class="h2HeaderStyle"> Other Side Interests of Mine</h2></a>
-                    <p> On the side side interests, I like to read up the following : </p>
-                    <ol>
-                        <li>My favorite periodicals : <em>National Geographic</em>, <em>Popular Science</em>, <em>Popular Mechanics</em>, <em>The Economist</em>, <em>The Atlantic</em>, and <em>Nature Articles</em>!</li>
-                        <li>Learning random science facts.</li>
-                        <li>Competitive programming and puzzle solving.</li>
-                    </ol>
-                </section>
+                 <!-- Centered text better mobile readability -->
+                
+                 <!-- First Container -->
+                 <div class="container-fluid bg-4 text-center">
+                    <section>
+                        <a name="introduction"><h1 class="h1HeaderStyle">A Brief Introduction</h1></a>        
+                        <img src="Image_Sridhar_Hari.jpg" class="img-responsive img-circle margin selfImage" alt="An image of Hari Sridhar.">
+                        <p style="font-family: courier; font-size: 200%;"><b>System.out.println(Hello World!)</b></p>
+                        <p>My name is Hari Sridhar, I was born in New Jersey, I am 28 years old, and I grew up in Woodbridge, Virginia about 30 minutes south of Washington D.C. In the past, I've primarily worked as a software engineer
+                        across an array of companies and organizations. I am currently based out in San Francisco, CA, and I've spent time across the country, from the D.C. Metro Area, Austin Texas, Seattle, Washington, and finally San Francisco, CA.  
+                        I'm incredibly motivated towards working as a software engineer, and I want to both grow other engineers into good engineers as well as create and deliver products 
+                        that will positively impact the lives of those using them. </p>
+                        <a href="#" class="btn btn-link btn-lg">
+                            <span class="glyphicon glyphicon-search"></span> Search
+                        </a>
+                    </section>
+                </div>
+
+                <!-- Second Container -->
+                <div class="container-fluid bg-2 text-center">
+                    <section>
+                        <a name="WorkExperiences"><h2 class="h2HeaderStyle"> My past professional experiences</h2></a>        
+                        <p>
+                            Some of my past experiences include internships at the following companies back as an undergraduate student : 
+                        </p>
+                        <ol>
+                            <li>Intel</li>
+                            <li>Amazon</li>
+                        </ol>
+                        <p>
+                            And full-time professional employment at the following companies:
+                        </p>
+                        <ol>
+                            <li>S.W.I.F.T. srcl ( Nov 2018 - Dec 2021 ) </li>
+                            <li>Google ( Jan 2022 - Jan 2023 ) </li>
+                            <li>Capital One ( May 2023 - Mar 2024 ) </li>
+                        </ol>
+                        <h2 class="h2HeaderStyle"> My Side Hobbies </h2>
+                        <p>Outside of work ( when I am not to busy with other things going on ), I like spending quality time on the following activities :</p>
+                        <ol>
+                            <li>Exploring new restaurants : I a huge foodie!</li>
+                            <li>Cooking and experimenting with new cuisines! Favorites include Mediterranean and Mexican.</li>
+                            <li>Spending time on google maps.</li>
+                            <li>Playing games : board games, card games, video games - you name it, I'm down for it!</li>
+                        </ol>
+                    </section>
+                </div>
+
+                <!-- Third Container -->
+                <div class="container-fluid bg-3 text-center">
+                    <section>
+                        <a name="OtherInterests"><h2 class="h2HeaderStyle"> Other Side Interests of Mine</h2></a>
+                        <p> On the side side interests, I like to read up the following : </p>
+                        <ol>
+                            <li>My favorite periodicals : <em>National Geographic</em>, <em>Popular Science</em>, <em>Popular Mechanics</em>, <em>The Economist</em>, <em>The Atlantic</em>, and <em>Nature Articles</em>!</li>
+                            <li>Learning random science facts.</li>
+                            <li>Competitive programming and puzzle solving.</li>
+                        </ol>
+                    </section>
+                </div>
             </body>
             <br/>
-            <section><a name="contact"><a><h2 class="h2HeaderStyle">Contact Me:</h2></a>
-                <p>For ways to reach out to me, click on the following external websites :</p>
-                <ol>
-                    <li>Facebook :  <a href="https://www.facebook.com/hari.sridhar.127/">Facebook/hari.sridhar.127</a></li>
-                    <li>Twitter:    <a href="www.twitter.com">some link</a></li>
-                    <li>Instagram:  <a href="https://www.instagram.com/hari.srdhr/">Instagram/hari.srdhr</a></li>
-                    <li>LinkedIn:   <a href="https://www.linkedin.com/in/harisrid/">Linkedin/harisrid</a></li>
-                    <li>Quora:      <a href="linked.com">some quora link</a></li>
-                </ol>
-                <p>And for viewing my open source contributions, side projects, and other code contributions, head on over to the following links :</p>
-                <ol>
-                    <li>Leetcode: <a href="https://leetcode.com/2018hsridhar/">Leetcode/2018hsridhar</a></li>
-                    <li>Github : <a href="https://github.com/2018hsridhar">Github/2018hsridhar</a></li>
-                </ol>
-                <p> And reach out to me via e-mail</p>
-                <ol>
-                    <li>Non-work related emails : <a href="hari.srdhr@gmail.com">hari.srdhr@gmail.com</a></li>
-                    <li>Work related emails : <a href="hari.h.sridhar@gmail.com">hari.h.sridhar@gmail.com</a></li>
-                </ol>
-            </section>
-            <section><a name="Resume"><a><h2 class="h2HeaderStyle">Resume</h2></a>    
-                <ol>
-                    <li> Resume : <a href = "https://2018hsridhar.github.io/Sridhar_Hari_Resume.pdf">Resume_Sridhar_hari</a></li>
-                </ol>
-            </section>
-        </article>
+
+            <!-- Fourth Container ( GRID ) ( SOCIAL MEDIA PLATFORMS ) -->
+            <div class="container-fluid bg-3 text-center">
+                <section>
+                    <a name="contact"><a><h2 class="h2HeaderStyle">Contact Me:</h2></a>
+                    <p>And for viewing my open source contributions, side projects, and other code contributions, head on over to the following links :</p>
+                    <ol>
+                        <li>Leetcode: <a href="https://leetcode.com/2018hsridhar/">Leetcode/2018hsridhar</a></li>
+                        <li>Github : <a href="https://github.com/2018hsridhar">Github/2018hsridhar</a></li>
+                    </ol>
+                    <p> And reach out to me via e-mail</p>
+                    <ol>
+                        <li>Non-work related emails : <a href="hari.srdhr@gmail.com">hari.srdhr@gmail.com</a></li>
+                        <li>Work related emails : <a href="hari.h.sridhar@gmail.com">hari.h.sridhar@gmail.com</a></li>
+                    </ol>
+                    <p>For ways to reach out to me, click on the following external websites :</p>
+                    <div class="row">
+                        <div class="col-sm-3" style="text-align:center; background-color: none;">
+                            <p>Facebook </p>
+                            <a href="https://www.facebook.com/hari.sridhar.127/" class="fa fa-facebook"></a>
+                        </div>
+                        <div class="col-sm-3" style="text-align:center; background-color: none;">
+                            <p>Twitter</p>
+                            <a href="www.twitter.com" class="fa fa-twitter"></a>
+                        </div>
+                        <div class="col-sm-3" style="text-align:center; background-color: none;">
+                            <p>Instagram</p>
+                            <a href="https://www.instagram.com/hari.srdhr/" class="fa fa-instagram"></a>
+                        </div>
+                        <div class="col-sm-3" style="background-color: none;">
+                            <p>Linkedin</p>
+                            <a href="https://www.linkedin.com/in/harisrid/" class="fa fa-linkedin"></a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Fifth Container -->
+            <div class="container-fluid bg-3 text-center">
+                <section>
+                <a name="Resume"><a><h2 class="h2HeaderStyle">Resume</h2></a>    
+                    <!-- 260 glyphicons : glyphicons halflings -->
+                    <a href = "https://2018hsridhar.github.io/Sridhar_Hari_Resume.pdf"><span class="glyphicon glyphicon-download"></span>Resume_Sridhar_Hari</a>
+                    <!-- <a href = "https://2018hsridhar.github.io/Sridhar_Hari_Resume.pdf">Resume_Sridhar_Hari</a> -->
+                </section>
+            </div>
+    </article>
     </main>
-    <footer>
+    <footer class="container-fluid bg-5 text-center">
         <div class="copywright">
             <p>&copy; Copywright Hari Sridhar 2024<p>
         </div>
