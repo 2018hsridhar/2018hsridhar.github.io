@@ -40,12 +40,10 @@
             {
                 // 3 x 3 board for now
                 // no int : make arr differently
-                // this.board = new int[3][3];
-                var board = new Array(3).fill(0);
+                this.board = new Array(3).fill(0);
                 for (var i = 0; i < 3; i++) {
-                    board[i] = new Array(3);
+                    this.board[i] = new Array(3);
                 }
-                console.log(board)
             }
             
             // return 1 if a winning move
@@ -54,12 +52,12 @@
             {
                 let wonMoveStatus = 0;
                 if(player == 1){
-                    board[row][col] = 1;
-                    if(checkIfWin(board,row,col,1))
+                    this.board[row][col] = 1;
+                    if(this.checkIfWin(this.board,row,col,1))
                         wonMoveStatus = 1;
                 } else if ( player == 2 ) {
-                    board[row][col] = 2;        
-                    if(checkIfWin(board,row,col,2))
+                    this.board[row][col] = 2;        
+                    if(this.checkIfWin(this.board,row,col,2))
                         wonMoveStatus = 2;
                 }
                 return wonMoveStatus;
@@ -73,11 +71,11 @@
                 let haveCol = true;
                 let haveFwdDiag = true;
                 let haveBkwdDiag = true;
-                let n = board.length;
+                let n = this.board.length;
 
                 // Check by row
                 for(var c = 0; c < n; ++c){
-                    if(board[row][c] != player) {
+                    if(this.board[row][c] != player) {
                         haveRow = false;
                         break;
                     }
@@ -85,7 +83,7 @@
                 
                 // Check by col
                 for(var r = 0; r < n; ++r){
-                    if(board[r][col] != player) {
+                    if(this.board[r][col] != player) {
                         haveCol = false;
                         break;
                     }
@@ -95,7 +93,7 @@
                 if(row == col) {
                     for(var i = 0; i < n; ++i){
                         var j = i;
-                        if(board[i][j] != player) {
+                        if(this.board[i][j] != player) {
                             haveFwdDiag = false;
                             break;
                         }
@@ -108,7 +106,7 @@
                 if(row === (n - 1 - col )) {
                     for(var i = 0; i < n; ++i){
                         var j = (n - 1) - i;
-                        if(board[i][j] != player) {
+                        if(this.board[i][j] != player) {
                             haveBkwdDiag = false;
                             break;
                         }
@@ -124,10 +122,10 @@
                 var myTicTacToeGame = new TicTacToe()
                 tiles = ["#tileOne","#tileTwo","#tileThree","#tileFour","#tileFive",
                     "#tileSix","#tileSeven", "#tileEight","#tileNine"]
-                rowCols = [[0,0],[1,0],[2,0],[0,1],[1,1],[2,1],[0,2],[1,2],[2,2]]
+                var rowCols = [[0,0],[1,0],[2,0],[0,1],[1,1],[2,1],[0,2],[1,2],[2,2]]
                 let tilesClicked = new Set()
                 let boardWinStatus = false
-                for(var idx = 0; idx < tiles.length; idx++){
+                for(let idx = 0; idx < tiles.length; idx++){
                     let tile = tiles[idx]
                     console.log(tile)
                     let tileEl = document.querySelector(tile)
@@ -136,10 +134,14 @@
                         tileEl.addEventListener('click', (event) => {
                             console.log('Clicked on tile' + tile)
                             curTileValue = document.querySelector(tile).innerHTML;
-                            if(tilesClicked.length <= 9 && curTileValue === '#' && !tilesClicked.has(tile)) {
-                                rowColPair = rowCols[idx]
-                                row = rowColPair[0]
-                                col = rowColPair[1]
+                            // console.log(curTileValue)
+                            // console.log(tilesClicked)
+                            // console.log(curTileValue === '#')
+                            // console.log(tilesClicked.size <= 9)
+                            if(tilesClicked.size <= 9 && curTileValue === '#' && !tilesClicked.has(tile)) {
+                                let rowColPair = rowCols[idx]
+                                let row = rowColPair[0]
+                                let col = rowColPair[1]
                                 if(player === 1 ){
                                     boardWinStatus = myTicTacToeGame.move(row,col,player)
                                     document.querySelector(tile).innerHTML = 'X'
