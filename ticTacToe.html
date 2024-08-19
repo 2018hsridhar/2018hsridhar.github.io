@@ -1,0 +1,105 @@
+<!-- A first tic-tac-toe HTML/CSS/Javascript rendered game -->
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    .tile {
+      height: 50px;
+      width: 50px;
+      background-color: blue;
+      border: black;
+      border-width: 10px;
+    }
+    </style>
+    <script>
+        // Single class for Tic-Tac-Toe
+            // default TicTacToe : everything all zeroed out
+            var TicTacToe = function(n) 
+            {
+                this.board = new int[n][n];
+            }
+            
+            // return 1 if a winning move
+            // return 0 if a loosing move
+            TicTacToe.prototype.move = function(row, col, player) 
+            {
+                let wonMoveStatus = 0;
+                if(player == 1){
+                    board[row][col] = 1;
+                    if(checkIfWin(board,row,col,1))
+                        wonMoveStatus = 1;
+                } else if ( player == 2 ) {
+                    board[row][col] = 2;        
+                    if(checkIfWin(board,row,col,2))
+                        wonMoveStatus = 2;
+                }
+                return wonMoveStatus;
+            };
+            
+            // Player number indicates number to check on the board too!
+            // O(N) check operation per `move` operation here too!
+            TicTacToe.prototype.checkIfWin = function(board, row, col, player)
+            {
+                let haveRow = true;
+                let haveCol = true;
+                let haveFwdDiag = true;
+                let haveBkwdDiag = true;
+                let n = board.length;
+
+                // Check by row
+                for(var c = 0; c < n; ++c){
+                    if(board[row][c] != player) {
+                        haveRow = false;
+                        break;
+                    }
+                }
+                
+                // Check by col
+                for(var r = 0; r < n; ++r){
+                    if(board[r][col] != player) {
+                        haveCol = false;
+                        break;
+                    }
+                }
+                
+                // Check by fwdDiag
+                if(row == col) {
+                    for(var i = 0; i < n; ++i){
+                        var j = i;
+                        if(board[i][j] != player) {
+                            haveFwdDiag = false;
+                            break;
+                        }
+                    }
+                } else {
+                    haveFwdDiag = false;
+                }
+                
+                // Check by bkwdDiag
+                if(var === (n - 1 - col )) {
+                    for(var i = 0; i < n; ++i){
+                        var j = (n - 1) - i;
+                        if(board[i][j] != player) {
+                            haveBkwdDiag = false;
+                            break;
+                        }
+                    }
+                } else { 
+                    haveBkwdDiag = false;
+                }   
+                
+                return (haveRow || haveCol || haveFwdDiag || haveBkwdDiag );
+            };
+    </script>
+</head>
+<body>
+    <h2> TIC TAC TOE GAME </h2>
+    <div class="tic-tac-toe">
+        <div class="tile"></div>
+        </br>
+        <div class="tile"></div>
+        </br>
+        <div class="tile"></div>
+    </div>
+</body>
+</html>
