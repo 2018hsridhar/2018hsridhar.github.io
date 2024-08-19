@@ -30,11 +30,16 @@
     }
     </style>
     <script>
-        // Single class for Tic-Tac-Toe
+            var numTilesClicked = 0
+            var numGamesPlayed = 0
+            var player = 1
+            // Single class for Tic-Tac-Toe
+            // Handle tied-up case later ( or treat all tiles clicked )
             // default TicTacToe : everything all zeroed out
-            var TicTacToe = function(n) 
+            var TicTacToe = function() 
             {
-                this.board = new int[n][n];
+                // 3 x 3 board for now
+                this.board = new int[3][3];
             }
             
             // return 1 if a winning move
@@ -110,28 +115,66 @@
             };
 
             window.addEventListener("DOMContentLoaded", (event) => {
-                let tileOne = document.querySelector("#tileOne")
-                if(tileOne) {
-                    tileOne.addEventListener('click', (event) => {
-                        console.log('clicked')
-                    });
+                tiles = ["#tileOne","#tileTwo","#tileThree","#tileFour","#tileFive",
+                    "#tileSix","#tileSeven", "#tileEight","#tileNine"]
+                rowCols = [[0,0],[1,0],[2,0],[0,1],[1,1],[2,1],[0,2],[1,2],[2,2]]
+                let tilesClicked = set()
+                for(var idx = 0; idx < tiles.length; idx++){
+                    let tile = tiles[idx]
+                    console.log(tile)
+                    let tileEl = document.querySelector(tile)
+                    if(tileEl) {
+                        // best practice : add eventListener()
+                        tileEl.addEventListener('click', (event) => {
+                            console.log('Clicked on tile' + tile)
+                            curTileValue = document.querySelector(tile).innerHTML;
+                            if(curTileValue === '#' && !tilesClicked.has(tile)) {
+                                if(player === 1 ){
+                                    document.querySelector(tile).innerHTML = 'X'
+                                } else {
+                                    document.querySelector(tile).innerHTML = 'O'
+                                }
+                                tilesClicked.add(tile);
+                            } else {
+                                console.log("Invalid click event")
+                            }
+                            
+                            // switch players each turn of click
+                            if(player === 1) {
+                                player = 2
+                            } else {
+                                player = 1
+                            }
+                        });
+                    }
                 }
             })
+
+            function resetGameScore() {
+                numGamesPlayed += 1
+
+            }
     </script>
 </head>
 <body>
     <h2> TIC TAC TOE GAME </h2>
     <div class="tic-tac-toe">
         <div class="grid-container">
-            <div class="grid-item tile" id="tileOne">1</div>
-            <div class="grid-item tile" id="tileTwo">2</div>
-            <div class="grid-item tile" id="tileThree">3</div>
-            <div class="grid-item tile" id="tileFour">4</div>
-            <div class="grid-item tile" id="tileFive">5</div>
-            <div class="grid-item tile" id="tileSix">6</div>
-            <div class="grid-item tile" id="tileSeven">7</div>
-            <div class="grid-item tile" id="tileEight">8</div>
-            <div class="grid-item tile" id="tileNine">9</div>
+            <!-- #TODO : put empty space here versus (#) sign -->
+            <div class="grid-item tile" id="tileOne">#</div>
+            <div class="grid-item tile" id="tileTwo">#</div>
+            <div class="grid-item tile" id="tileThree">#</div>
+            <div class="grid-item tile" id="tileFour">#</div>
+            <div class="grid-item tile" id="tileFive">#</div>
+            <div class="grid-item tile" id="tileSix">#</div>
+            <div class="grid-item tile" id="tileSeven">#</div>
+            <div class="grid-item tile" id="tileEight">#</div>
+            <div class="grid-item tile" id="tileNine">#</div>
+        </div>
+        <div class="gameButtons">
+            <div class="resetTheGame">
+                <button id="resetTheGame" class="resetButton" onclick="resetGameScore()">Reset The Game</button>
+            </div>
         </div>
     </div>
 </body>
