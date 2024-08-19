@@ -3,12 +3,30 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-    .tile {
-      height: 50px;
-      width: 50px;
-      background-color: blue;
-      border: black;
-      border-width: 10px;
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        background-color: #2196F3;
+        padding: 10px;
+        column-gap: 10px;
+        row-gap: 10px;
+        /* give grid additional spacing */
+        /* for cells beneath */
+    }
+
+    /* padding as false well to give additional spacing */
+    .grid-item {
+        background-color: red;
+        border: 1px solid black;
+        padding: 10px;
+        text-align: center;
+        font-size: xx-large;
+    }
+
+    h2 {
+        text-align: center;
+        font-size:25px;
     }
     </style>
     <script>
@@ -76,7 +94,7 @@
                 }
                 
                 // Check by bkwdDiag
-                if(var === (n - 1 - col )) {
+                if(row === (n - 1 - col )) {
                     for(var i = 0; i < n; ++i){
                         var j = (n - 1) - i;
                         if(board[i][j] != player) {
@@ -95,11 +113,17 @@
 <body>
     <h2> TIC TAC TOE GAME </h2>
     <div class="tic-tac-toe">
-        <div class="tile"></div>
-        </br>
-        <div class="tile"></div>
-        </br>
-        <div class="tile"></div>
+        <div class="grid-container">
+            <div class="grid-item tile tileOne">1</div>
+            <div class="grid-item tile tileTwo">2</div>
+            <div class="grid-item tile tileThree">3</div>
+            <div class="grid-item tile tileFour">4</div>
+            <div class="grid-item tile tileFive">5</div>
+            <div class="grid-item tile tileSix">6</div>
+            <div class="grid-item tile tileSeven">7</div>
+            <div class="grid-item tile tileEight">8</div>
+            <div class="grid-item tile tileNine">9</div>
+        </div>
     </div>
 </body>
 </html>
