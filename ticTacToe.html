@@ -39,7 +39,13 @@
             var TicTacToe = function() 
             {
                 // 3 x 3 board for now
-                this.board = new int[3][3];
+                // no int : make arr differently
+                // this.board = new int[3][3];
+                var board = new Array(3).fill(0);
+                for (var i = 0; i < 3; i++) {
+                    board[i] = new Array(3);
+                }
+                console.log(board)
             }
             
             // return 1 if a winning move
@@ -115,10 +121,12 @@
             };
 
             window.addEventListener("DOMContentLoaded", (event) => {
+                var myTicTacToeGame = new TicTacToe()
                 tiles = ["#tileOne","#tileTwo","#tileThree","#tileFour","#tileFive",
                     "#tileSix","#tileSeven", "#tileEight","#tileNine"]
                 rowCols = [[0,0],[1,0],[2,0],[0,1],[1,1],[2,1],[0,2],[1,2],[2,2]]
-                let tilesClicked = set()
+                let tilesClicked = new Set()
+                let boardWinStatus = false
                 for(var idx = 0; idx < tiles.length; idx++){
                     let tile = tiles[idx]
                     console.log(tile)
@@ -128,15 +136,25 @@
                         tileEl.addEventListener('click', (event) => {
                             console.log('Clicked on tile' + tile)
                             curTileValue = document.querySelector(tile).innerHTML;
-                            if(curTileValue === '#' && !tilesClicked.has(tile)) {
+                            if(tilesClicked.length <= 9 && curTileValue === '#' && !tilesClicked.has(tile)) {
+                                rowColPair = rowCols[idx]
+                                row = rowColPair[0]
+                                col = rowColPair[1]
                                 if(player === 1 ){
+                                    boardWinStatus = myTicTacToeGame.move(row,col,player)
                                     document.querySelector(tile).innerHTML = 'X'
                                 } else {
+                                    boardWinStatus = myTicTacToeGame.move(row,col,player)
                                     document.querySelector(tile).innerHTML = 'O'
+                                }
+                                if(boardWinStatus){
+                                    console.log("Player" + player + "won the game!")
+                                } else {
+
                                 }
                                 tilesClicked.add(tile);
                             } else {
-                                console.log("Invalid click event")
+                                console.log("Invalid click event.")
                             }
                             
                             // switch players each turn of click
