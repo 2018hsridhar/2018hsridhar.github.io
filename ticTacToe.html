@@ -108,21 +108,30 @@
                 
                 return (haveRow || haveCol || haveFwdDiag || haveBkwdDiag );
             };
+
+            window.addEventListener("DOMContentLoaded", (event) => {
+                let tileOne = document.querySelector("#tileOne")
+                if(tileOne) {
+                    tileOne.addEventListener('click', (event) => {
+                        console.log('clicked')
+                    });
+                }
+            })
     </script>
 </head>
 <body>
     <h2> TIC TAC TOE GAME </h2>
     <div class="tic-tac-toe">
         <div class="grid-container">
-            <div class="grid-item tile tileOne">1</div>
-            <div class="grid-item tile tileTwo">2</div>
-            <div class="grid-item tile tileThree">3</div>
-            <div class="grid-item tile tileFour">4</div>
-            <div class="grid-item tile tileFive">5</div>
-            <div class="grid-item tile tileSix">6</div>
-            <div class="grid-item tile tileSeven">7</div>
-            <div class="grid-item tile tileEight">8</div>
-            <div class="grid-item tile tileNine">9</div>
+            <div class="grid-item tile" id="tileOne">1</div>
+            <div class="grid-item tile" id="tileTwo">2</div>
+            <div class="grid-item tile" id="tileThree">3</div>
+            <div class="grid-item tile" id="tileFour">4</div>
+            <div class="grid-item tile" id="tileFive">5</div>
+            <div class="grid-item tile" id="tileSix">6</div>
+            <div class="grid-item tile" id="tileSeven">7</div>
+            <div class="grid-item tile" id="tileEight">8</div>
+            <div class="grid-item tile" id="tileNine">9</div>
         </div>
     </div>
 </body>
