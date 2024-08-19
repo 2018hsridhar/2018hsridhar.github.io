@@ -45,6 +45,14 @@
                     this.board[i] = new Array(3);
                 }
             }
+
+            TicTacToe.prototype.clear = function() {
+                for(let i = 0; i < 3; i++){
+                    for(let j = 0; j < 3; j++){
+                        this.board[i][j] = 0;
+                    }
+                }
+            }
             
             // return 1 if a winning move
             // return 0 if a loosing move
@@ -118,8 +126,9 @@
                 return (haveRow || haveCol || haveFwdDiag || haveBkwdDiag );
             };
 
+            var myTicTacToeGame
             window.addEventListener("DOMContentLoaded", (event) => {
-                var myTicTacToeGame = new TicTacToe()
+                myTicTacToeGame = new TicTacToe()
                 tiles = ["#tileOne","#tileTwo","#tileThree","#tileFour","#tileFive",
                     "#tileSix","#tileSeven", "#tileEight","#tileNine"]
                 var rowCols = [[0,0],[1,0],[2,0],[0,1],[1,1],[2,1],[0,2],[1,2],[2,2]]
@@ -127,12 +136,11 @@
                 let boardWinStatus = false
                 for(let idx = 0; idx < tiles.length; idx++){
                     let tile = tiles[idx]
-                    console.log(tile)
                     let tileEl = document.querySelector(tile)
                     if(tileEl) {
                         // best practice : add eventListener()
                         tileEl.addEventListener('click', (event) => {
-                            console.log('Clicked on tile' + tile)
+                            // console.log('Clicked on tile' + tile)
                             curTileValue = document.querySelector(tile).innerHTML;
                             // console.log(curTileValue)
                             // console.log(tilesClicked)
@@ -150,7 +158,7 @@
                                     document.querySelector(tile).innerHTML = 'O'
                                 }
                                 if(boardWinStatus){
-                                    console.log("Player" + player + "won the game!")
+                                    // console.log("Player" + player + "won the game!")
                                 } else {
 
                                 }
@@ -169,10 +177,14 @@
                     }
                 }
             })
-
+            // outside of window event listener ( reference scope )
             function resetGameScore() {
-                numGamesPlayed += 1
-
+                window.addEventListener("DOMContentLoaded", (event) => {
+                    numGamesPlayed += 1
+                    console.log(myTicTacToeGame.board)
+                    myTicTacToeGame.clear()
+                    console.log(myTicTacToeGame.board)
+                });
             }
     </script>
 </head>
