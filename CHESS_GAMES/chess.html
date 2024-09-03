@@ -3,6 +3,13 @@
 <!-- Hey why not code up checkers first? -->
  <!-- https://www.wikihow.com/Play-Checkers -->
 <!-- Simplificatin : chess pieces can be textual at first ( or basic shapes ) -> next iteration advance out -->
+<!-- Focus on building out the features slowly :-) -->
+<!-- next steps: -->
+<!-- a. Hover over an element under click ( which we are allowed to programatically ) -->
+<!-- b. build out the KING move pieces later -->
+ <!-- c. Tabulate the score as we go?  -->
+<!-- d. reset the game state -->
+ <!-- idea : onClick() events : inform in the console which (r,c) was clicked. Dynamically pass into string variables ( to then manipulate ) -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -40,6 +47,12 @@
                 justify-content: center;
                 align-items: center;
             }
+            div div.cellBrown:hover {
+                background-color: yellow;
+            }
+            div div.cellTan:hover {
+                background-color: yellow;
+            }
             div div.cellBlue {
                 width: 100px;
                 height: 100px;
@@ -73,6 +86,9 @@
                 -webkit-border-radius: 50px;
                 border-radius: 50px;
             }
+            .checkersPiecePlayerOne:hover {
+                background-color: purple;
+            }
 
             .checkersPiecePlayerTwo {
                 width: 80px;
@@ -81,6 +97,10 @@
                 -moz-border-radius: 50px;
                 -webkit-border-radius: 50px;
                 border-radius: 50px;
+            }
+
+            .checkersPiecePlayerTwo:hover {
+                background-color: purple;
             }
     </style>
     </head>
@@ -104,8 +124,9 @@
         $(document).ready(function(){
             // jquery to rescue : reduce HTML boilerplate
             // checkers boilerplate
-            // cellBrownHTML = "<div class='cellBrown'></div>"
-            // cellTanHTML = "<div class='cellTan'></div>"
+            // ideas :
+            // a. Place (row,col) information dynamically over each cell under javascript creation
+            // b. Execute dynamic retrieval
             cellBrownHTML = "<div class='cellBrown'></div>"
             cellTanHTML = "<div class='cellTan'></div>"
             checkersCellPlayerOnePieceOne = "<div class='cellBrown'><div class='checkersPiecePlayerOne'></div></div>"
@@ -125,7 +146,7 @@
             numCellsPerRow = 8
             numCellsPerCol = 8
             buildCheckersBoardGame()
-            // buildChessBoardGame()
+            buildChessBoardGame()
 
             function buildCheckersBoardGame() {
                 console.log("Building checkers board game.")
@@ -188,25 +209,25 @@
             }
 
             // code for chess
-            // function buildChessBoardGame() {
-            //     console.log("Building chess board game.")
-            //     for(var repEl = 0; repEl < numCellsPerCol/2; repEl++){
-            //         // the first type of row
-            //         $("#chessGameboard").append(chessRowTypeOneHTML);  
-            //         for(var i = 0; i < numCellsPerRow/2; i++) {
-            //             $("#chessGameboard").append(chessCellTypeOneHTML)
-            //             $("#chessGameboard").append(chessCellTypeTwoHTML)
-            //         }
-            //         $("#chessGameboard").append("</div>");
-            //         // the second type of row
-            //         $("#chessGameboard").append(chessRowTypeTwoHTML);  
-            //         for(var i = 0; i< numCellsPerRow/2; i++) {
-            //             $("#chessGameboard").append(chessCellTypeTwoHTML)
-            //             $("#chessGameboard").append(chessCellTypeOneHTML)
-            //         }
-            //         $("#chessGameboard").append("</div>");  
-            //     }
-            // }
+            function buildChessBoardGame() {
+                console.log("Building chess board game.")
+                for(var repEl = 0; repEl < numCellsPerCol/2; repEl++){
+                    // the first type of row
+                    $("#chessGameboard").append(chessRowTypeOneHTML);  
+                    for(var i = 0; i < numCellsPerRow/2; i++) {
+                        $("#chessGameboard").append(chessCellTypeOneHTML)
+                        $("#chessGameboard").append(chessCellTypeTwoHTML)
+                    }
+                    $("#chessGameboard").append("</div>");
+                    // the second type of row
+                    $("#chessGameboard").append(chessRowTypeTwoHTML);  
+                    for(var i = 0; i< numCellsPerRow/2; i++) {
+                        $("#chessGameboard").append(chessCellTypeTwoHTML)
+                        $("#chessGameboard").append(chessCellTypeOneHTML)
+                    }
+                    $("#chessGameboard").append("</div>");  
+                }
+            }
         });
     </script>
     <footer>
