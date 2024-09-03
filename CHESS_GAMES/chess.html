@@ -1,9 +1,11 @@
 <!-- HTML for chess game -->
 <!-- Can quickly build a chess game from a checkers game! -->
 <!-- Hey why not code up checkers first? -->
+ <!-- https://www.wikihow.com/Play-Checkers -->
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <style>
             /* Internal CSS preference */
             h1 {
@@ -38,86 +40,115 @@
                 float: left;
             }
     </style>
-        
     </head>
     <body>
         <h1>A Basic Checkers Game</h1>
         <p>Two players only in the game : each alternates</p>
 
-        <div id="gameboard">
-                <!-- Row number 1 -->          
-                <div class="cellTan"></div>
+        <!-- <div id="gameboard">
+                Row number 1           -->
+                <!-- <div class="cellTan"></div>
                 <div class="cellBrown"></div>
                 <div class="cellTan"></div>
                 <div class="cellBrown"></div>
                 <div class="cellTan"></div>
                 <div class="cellBrown"></div>
                 <div class="cellTan"></div>
-                <div class="cellBrown"></div>
+                <div class="cellBrown"></div> -->
                 <!-- Row number 2 -->          
-                <div class="cellBrown"></div>
+                <!-- <div class="cellBrown"></div>
                 <div class="cellTan"></div>
                 <div class="cellBrown"></div>
                 <div class="cellTan"></div>
                 <div class="cellBrown"></div>
                 <div class="cellTan"></div>
                 <div class="cellBrown"></div>
-                <div class="cellTan"></div>
+                <div class="cellTan"></div> -->
                 <!-- Row number 1 -->          
-                <div class="cellTan"></div>
+                <!-- <div class="cellTan"></div>
                 <div class="cellBrown"></div>
                 <div class="cellTan"></div>
                 <div class="cellBrown"></div>
                 <div class="cellTan"></div>
                 <div class="cellBrown"></div>
                 <div class="cellTan"></div>
-                <div class="cellBrown"></div>
+                <div class="cellBrown"></div> -->
                 <!-- Row number 2 -->          
-                <div class="cellBrown"></div>
+                <!-- <div class="cellBrown"></div>
                 <div class="cellTan"></div>
                 <div class="cellBrown"></div>
                 <div class="cellTan"></div>
                 <div class="cellBrown"></div>
                 <div class="cellTan"></div>
                 <div class="cellBrown"></div>
-                <div class="cellTan"></div>
+                <div class="cellTan"></div> -->
                 <!-- Row number 1 -->          
-                <div class="cellTan"></div>
+                <!-- <div class="cellTan"></div>
                 <div class="cellBrown"></div>
                 <div class="cellTan"></div>
                 <div class="cellBrown"></div>
                 <div class="cellTan"></div>
                 <div class="cellBrown"></div>
                 <div class="cellTan"></div>
-                <div class="cellBrown"></div>
+                <div class="cellBrown"></div> -->
                 <!-- Row number 2 -->          
-                <div class="cellBrown"></div>
+                <!-- <div class="cellBrown"></div>
                 <div class="cellTan"></div>
                 <div class="cellBrown"></div>
                 <div class="cellTan"></div>
                 <div class="cellBrown"></div>
                 <div class="cellTan"></div>
                 <div class="cellBrown"></div>
-                <div class="cellTan"></div>
+                <div class="cellTan"></div> -->
                 <!-- Row number 1 -->          
-                <div class="cellTan"></div>
+                <!-- <div class="cellTan"></div>
                 <div class="cellBrown"></div>
                 <div class="cellTan"></div>
                 <div class="cellBrown"></div>
                 <div class="cellTan"></div>
                 <div class="cellBrown"></div>
                 <div class="cellTan"></div>
-                <div class="cellBrown"></div>
+                <div class="cellBrown"></div> -->
                 <!-- Row number 2 -->          
-                <div class="cellBrown"></div>
+                <!-- <div class="cellBrown"></div>
                 <div class="cellTan"></div>
                 <div class="cellBrown"></div>
                 <div class="cellTan"></div>
                 <div class="cellBrown"></div>
                 <div class="cellTan"></div>
                 <div class="cellBrown"></div>
-                <div class="cellTan"></div>
+                <div class="cellTan"></div> -->
+            <!-- </div> -->
+            <br/>
+            <div id="gameboardTwo">
             </div>
+            <script>
+                // jquery to rescue : reduce HTML boilerplate
+                cellBrownHTML = "<div class='cellBrown'></div>"
+                cellTanHTML = "<div class='cellTan'></div>"
+                rowBrownHTML = "<div class='rowBrownStart'>"
+                rowTanHTML = "<div class='rowTanStart'>"
+                numCellsPerRow = 8
+                numCellsPerCol = 8
+                $(document).ready(function(){
+                    for(var repEl = 0; repEl < numCellsPerCol/2; repEl++){
+                        // the first type of row
+                        $("#gameboardTwo").append(rowBrownHTML);  
+                        for(var i = 0; i < numCellsPerRow/2; i++) {
+                            $("#gameboardTwo").append(cellBrownHTML)
+                            $("#gameboardTwo").append(cellTanHTML)
+                        }
+                        $("#gameboardTwo").append("</div>");
+                        // the second type of row
+                        $("#gameboardTwo").append(rowTanHTML);  
+                        for(var i = 0; i< numCellsPerRow/2; i++) {
+                            $("#gameboardTwo").append(cellTanHTML)
+                            $("#gameboardTwo").append(cellBrownHTML)
+                        }
+                        $("#gameboardTwo").append("</div>");  
+                    }
+                });                
+            </script>
     </body>
     <footer>
     </footer>
