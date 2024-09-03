@@ -1,4 +1,6 @@
 <!-- HTML for chess game -->
+<!-- Can quickly build a chess game from a checkers game! -->
+<!-- Hey why not code up checkers first? -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,23 +12,112 @@
             }
 
             /* Gameboard div wrappers */
-            div #gameboard {
+            div#gameboard {
                 width: 800px;
                 height: 800px;
             }
 
-            div div #cell {
+            div div.cellTan {
+                width: 100px;
+                height: 100px;
+                outline: 1px solid;
+                float: left;
+                background-color: tan;
+            }
+            div div.cellBrown {
+                width: 100px;
+                height: 100px;
+                outline: 1px solid;
+                float: left;
+                background-color: brown;
+            }
+            div div.cell {
                 width: 100px;
                 height: 100px;
                 outline: 1px solid;
                 float: left;
             }
-        </style>
+    </style>
         
     </head>
     <body>
-        <h1>A Basic Chess Game</h1>
+        <h1>A Basic Checkers Game</h1>
         <p>Two players only in the game : each alternates</p>
+
+        <div id="gameboard">
+                <!-- Row number 1 -->          
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <!-- Row number 2 -->          
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <!-- Row number 1 -->          
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <!-- Row number 2 -->          
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <!-- Row number 1 -->          
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <!-- Row number 2 -->          
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <!-- Row number 1 -->          
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <!-- Row number 2 -->          
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+                <div class="cellBrown"></div>
+                <div class="cellTan"></div>
+            </div>
     </body>
     <footer>
     </footer>
