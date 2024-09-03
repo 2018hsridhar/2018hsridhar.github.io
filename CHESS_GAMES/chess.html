@@ -42,114 +42,77 @@
     </style>
     </head>
     <body>
-        <h1>A Basic Checkers Game</h1>
-        <p>Two players only in the game : each alternates</p>
-
-        <!-- <div id="gameboard">
-                Row number 1           -->
-                <!-- <div class="cellTan"></div>
-                <div class="cellBrown"></div>
-                <div class="cellTan"></div>
-                <div class="cellBrown"></div>
-                <div class="cellTan"></div>
-                <div class="cellBrown"></div>
-                <div class="cellTan"></div>
-                <div class="cellBrown"></div> -->
-                <!-- Row number 2 -->          
-                <!-- <div class="cellBrown"></div>
-                <div class="cellTan"></div>
-                <div class="cellBrown"></div>
-                <div class="cellTan"></div>
-                <div class="cellBrown"></div>
-                <div class="cellTan"></div>
-                <div class="cellBrown"></div>
-                <div class="cellTan"></div> -->
-                <!-- Row number 1 -->          
-                <!-- <div class="cellTan"></div>
-                <div class="cellBrown"></div>
-                <div class="cellTan"></div>
-                <div class="cellBrown"></div>
-                <div class="cellTan"></div>
-                <div class="cellBrown"></div>
-                <div class="cellTan"></div>
-                <div class="cellBrown"></div> -->
-                <!-- Row number 2 -->          
-                <!-- <div class="cellBrown"></div>
-                <div class="cellTan"></div>
-                <div class="cellBrown"></div>
-                <div class="cellTan"></div>
-                <div class="cellBrown"></div>
-                <div class="cellTan"></div>
-                <div class="cellBrown"></div>
-                <div class="cellTan"></div> -->
-                <!-- Row number 1 -->          
-                <!-- <div class="cellTan"></div>
-                <div class="cellBrown"></div>
-                <div class="cellTan"></div>
-                <div class="cellBrown"></div>
-                <div class="cellTan"></div>
-                <div class="cellBrown"></div>
-                <div class="cellTan"></div>
-                <div class="cellBrown"></div> -->
-                <!-- Row number 2 -->          
-                <!-- <div class="cellBrown"></div>
-                <div class="cellTan"></div>
-                <div class="cellBrown"></div>
-                <div class="cellTan"></div>
-                <div class="cellBrown"></div>
-                <div class="cellTan"></div>
-                <div class="cellBrown"></div>
-                <div class="cellTan"></div> -->
-                <!-- Row number 1 -->          
-                <!-- <div class="cellTan"></div>
-                <div class="cellBrown"></div>
-                <div class="cellTan"></div>
-                <div class="cellBrown"></div>
-                <div class="cellTan"></div>
-                <div class="cellBrown"></div>
-                <div class="cellTan"></div>
-                <div class="cellBrown"></div> -->
-                <!-- Row number 2 -->          
-                <!-- <div class="cellBrown"></div>
-                <div class="cellTan"></div>
-                <div class="cellBrown"></div>
-                <div class="cellTan"></div>
-                <div class="cellBrown"></div>
-                <div class="cellTan"></div>
-                <div class="cellBrown"></div>
-                <div class="cellTan"></div> -->
-            <!-- </div> -->
+        <div id="checkersGame">
+            <h1>A Basic Checkers Game</h1>
+            <p>Two players in the checkers game : each alternates</p>
             <br/>
-            <div id="gameboardTwo">
+            <div id="checkersGameboard">
             </div>
-            <script>
-                // jquery to rescue : reduce HTML boilerplate
-                cellBrownHTML = "<div class='cellBrown'></div>"
-                cellTanHTML = "<div class='cellTan'></div>"
-                rowBrownHTML = "<div class='rowBrownStart'>"
-                rowTanHTML = "<div class='rowTanStart'>"
-                numCellsPerRow = 8
-                numCellsPerCol = 8
-                $(document).ready(function(){
-                    for(var repEl = 0; repEl < numCellsPerCol/2; repEl++){
-                        // the first type of row
-                        $("#gameboardTwo").append(rowBrownHTML);  
-                        for(var i = 0; i < numCellsPerRow/2; i++) {
-                            $("#gameboardTwo").append(cellBrownHTML)
-                            $("#gameboardTwo").append(cellTanHTML)
-                        }
-                        $("#gameboardTwo").append("</div>");
-                        // the second type of row
-                        $("#gameboardTwo").append(rowTanHTML);  
-                        for(var i = 0; i< numCellsPerRow/2; i++) {
-                            $("#gameboardTwo").append(cellTanHTML)
-                            $("#gameboardTwo").append(cellBrownHTML)
-                        }
-                        $("#gameboardTwo").append("</div>");  
-                    }
-                });                
-            </script>
+        </div>
+        <div id="chessGame">
+            <h1>A Basic Chess Game</h1>
+            <p>Two players in the chess game : each alternates</p>
+            <br/>
+            <div id="chessGameboard">
+            </div>
+        </div>
     </body>
+    <script>
+        // jquery to rescue : reduce HTML boilerplate
+        // checkers boilerplate
+        cellBrownHTML = "<div class='cellBrown'></div>"
+        cellTanHTML = "<div class='cellTan'></div>"
+        rowBrownHTML = "<div class='rowBrownStart'>"
+        rowTanHTML = "<div class='rowTanStart'>"
+
+        // chess boilerplate
+        // build color extensibility
+        chessCellTypeOneHTML = "<div class='cellBlue'></div>"
+        chessCellTypeTwoHTML = "<div class='cellWhite'></div>"
+        chessRowTypeOneHTML = "<div class='rowBlueStart'>"
+        chessRowTypeTwoHTML = "<div class='rowWhiteStart'>"
+
+        numCellsPerRow = 8
+        numCellsPerCol = 8
+        $(document).ready(function(){
+
+            // code for checkers
+            for(var repEl = 0; repEl < numCellsPerCol/2; repEl++){
+                // the first type of row
+                $("#checkersGameboard").append(rowBrownHTML);  
+                for(var i = 0; i < numCellsPerRow/2; i++) {
+                    $("#checkersGameboard").append(cellBrownHTML)
+                    $("#checkersGameboard").append(cellTanHTML)
+                }
+                $("#checkersGameboard").append("</div>");
+                // the second type of row
+                $("#checkersGameboard").append(rowTanHTML);  
+                for(var i = 0; i< numCellsPerRow/2; i++) {
+                    $("#checkersGameboard").append(cellTanHTML)
+                    $("#checkersGameboard").append(cellBrownHTML)
+                }
+                $("#checkersGameboard").append("</div>");  
+            }
+
+            // code for chess
+            for(var repEl = 0; repEl < numCellsPerCol/2; repEl++){
+                // the first type of row
+                $("#chessGameboard").append(rowBrownHTML);  
+                for(var i = 0; i < numCellsPerRow/2; i++) {
+                    $("#chessGameboard").append(cellBrownHTML)
+                    $("#chessGameboard").append(cellTanHTML)
+                }
+                $("#chessGameboard").append("</div>");
+                // the second type of row
+                $("#chessGameboard").append(rowTanHTML);  
+                for(var i = 0; i< numCellsPerRow/2; i++) {
+                    $("#chessGameboard").append(cellTanHTML)
+                    $("#chessGameboard").append(cellBrownHTML)
+                }
+                $("#chessGameboard").append("</div>");  
+            }
+        });                
+    </script>
     <footer>
     </footer>
 </html>
