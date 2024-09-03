@@ -140,12 +140,7 @@
                     if(tileEl) {
                         // best practice : add eventListener()
                         tileEl.addEventListener('click', (event) => {
-                            // console.log('Clicked on tile' + tile)
                             curTileValue = document.querySelector(tile).innerHTML;
-                            // console.log(curTileValue)
-                            // console.log(tilesClicked)
-                            // console.log(curTileValue === '#')
-                            // console.log(tilesClicked.size <= 9)
                             if(tilesClicked.size <= 9 && curTileValue === '#' && !tilesClicked.has(tile)) {
                                 let rowColPair = rowCols[idx]
                                 let row = rowColPair[0]
