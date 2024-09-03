@@ -2,6 +2,7 @@
 <!-- Can quickly build a chess game from a checkers game! -->
 <!-- Hey why not code up checkers first? -->
  <!-- https://www.wikihow.com/Play-Checkers -->
+<!-- Simplificatin : chess pieces can be textual at first ( or basic shapes ) -> next iteration advance out -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,6 +26,9 @@
                 outline: 1px solid;
                 float: left;
                 background-color: tan;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
             div div.cellBrown {
                 width: 100px;
@@ -32,6 +36,9 @@
                 outline: 1px solid;
                 float: left;
                 background-color: brown;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
             div div.cellBlue {
                 width: 100px;
@@ -39,6 +46,9 @@
                 outline: 1px solid;
                 float: left;
                 background-color: blue;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
             div div.cellWhite {
                 width: 100px;
@@ -46,12 +56,31 @@
                 outline: 1px solid;
                 float: left;
                 background-color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
-            div div.cell {
-                width: 100px;
-                height: 100px;
-                outline: 1px solid;
-                float: left;
+            
+            /* Desire block elements for overlap */
+            /* https://www.freecodecamp.org/news/how-to-center-a-div-with-css/ */
+            /* Pages or containers */
+
+            .checkersPiecePlayerOne {
+                width: 80px;
+                height: 80px;
+                background: green;
+                -moz-border-radius: 50px;
+                -webkit-border-radius: 50px;
+                border-radius: 50px;
+            }
+
+            .checkersPiecePlayerTwo {
+                width: 80px;
+                height: 80px;
+                background: blue;
+                -moz-border-radius: 50px;
+                -webkit-border-radius: 50px;
+                border-radius: 50px;
             }
     </style>
     </head>
@@ -75,8 +104,14 @@
         $(document).ready(function(){
             // jquery to rescue : reduce HTML boilerplate
             // checkers boilerplate
+            // cellBrownHTML = "<div class='cellBrown'></div>"
+            // cellTanHTML = "<div class='cellTan'></div>"
             cellBrownHTML = "<div class='cellBrown'></div>"
             cellTanHTML = "<div class='cellTan'></div>"
+            checkersCellPlayerOnePieceOne = "<div class='cellBrown'><div class='checkersPiecePlayerOne'></div></div>"
+            checkersCellPlayerOnePieceTwo = "<div class='cellTan'><div class='checkersPiecePlayerOne'></div></div>"
+            checkersCellPlayerTwoPieceOne = "<div class='cellBrown'><div class='checkersPiecePlayerTwo'></div></div>"
+            checkersCellPlayerTwoPieceTwo = "<div class='cellTan'><div class='checkersPiecePlayerTwo'></div></div>"
             rowBrownHTML = "<div class='rowBrownStart'>"
             rowTanHTML = "<div class='rowTanStart'>"
 
@@ -90,12 +125,51 @@
             numCellsPerRow = 8
             numCellsPerCol = 8
             buildCheckersBoardGame()
-            buildChessBoardGame()
+            // buildChessBoardGame()
 
-            // code for checkers
             function buildCheckersBoardGame() {
                 console.log("Building checkers board game.")
-                for(var repEl = 0; repEl < numCellsPerCol/2; repEl++){
+                buildPlayerTwoCheckersPieces()
+                buildCheckersCenterPieces()
+                buildPlayerOneCheckersPieces()
+            }
+
+            function buildPlayerTwoCheckersPieces()
+            {
+                $("#checkersGameboard").append(rowBrownHTML);  
+                for(var i = 0; i < numCellsPerRow/2; i++) {
+                    $("#checkersGameboard").append(checkersCellPlayerOnePieceOne)
+                    $("#checkersGameboard").append(checkersCellPlayerOnePieceTwo)
+                }
+                $("#checkersGameboard").append("</div>");
+                // the second type of row
+                $("#checkersGameboard").append(rowTanHTML);  
+                for(var i = 0; i< numCellsPerRow/2; i++) {
+                    $("#checkersGameboard").append(checkersCellPlayerOnePieceTwo)
+                    $("#checkersGameboard").append(checkersCellPlayerOnePieceOne)
+                }
+                $("#checkersGameboard").append("</div>");  
+            }
+
+            function buildPlayerOneCheckersPieces()
+            {
+                $("#checkersGameboard").append(rowBrownHTML);  
+                for(var i = 0; i < numCellsPerRow/2; i++) {
+                    $("#checkersGameboard").append(checkersCellPlayerTwoPieceOne)
+                    $("#checkersGameboard").append(checkersCellPlayerTwoPieceTwo)
+                }
+                $("#checkersGameboard").append("</div>");
+                // the second type of row
+                $("#checkersGameboard").append(rowTanHTML);  
+                for(var i = 0; i< numCellsPerRow/2; i++) {
+                    $("#checkersGameboard").append(checkersCellPlayerTwoPieceTwo)
+                    $("#checkersGameboard").append(checkersCellPlayerTwoPieceOne)
+                }
+                $("#checkersGameboard").append("</div>");  
+            }
+
+            function buildCheckersCenterPieces() {
+                for(var repEl = 0; repEl < numCellsPerCol/4; repEl++){
                     // the first type of row
                     $("#checkersGameboard").append(rowBrownHTML);  
                     for(var i = 0; i < numCellsPerRow/2; i++) {
@@ -114,25 +188,25 @@
             }
 
             // code for chess
-            function buildChessBoardGame() {
-                console.log("Building chess board game.")
-                for(var repEl = 0; repEl < numCellsPerCol/2; repEl++){
-                    // the first type of row
-                    $("#chessGameboard").append(chessRowTypeOneHTML);  
-                    for(var i = 0; i < numCellsPerRow/2; i++) {
-                        $("#chessGameboard").append(chessCellTypeOneHTML)
-                        $("#chessGameboard").append(chessCellTypeTwoHTML)
-                    }
-                    $("#chessGameboard").append("</div>");
-                    // the second type of row
-                    $("#chessGameboard").append(chessRowTypeTwoHTML);  
-                    for(var i = 0; i< numCellsPerRow/2; i++) {
-                        $("#chessGameboard").append(chessCellTypeTwoHTML)
-                        $("#chessGameboard").append(chessCellTypeOneHTML)
-                    }
-                    $("#chessGameboard").append("</div>");  
-                }
-            }
+            // function buildChessBoardGame() {
+            //     console.log("Building chess board game.")
+            //     for(var repEl = 0; repEl < numCellsPerCol/2; repEl++){
+            //         // the first type of row
+            //         $("#chessGameboard").append(chessRowTypeOneHTML);  
+            //         for(var i = 0; i < numCellsPerRow/2; i++) {
+            //             $("#chessGameboard").append(chessCellTypeOneHTML)
+            //             $("#chessGameboard").append(chessCellTypeTwoHTML)
+            //         }
+            //         $("#chessGameboard").append("</div>");
+            //         // the second type of row
+            //         $("#chessGameboard").append(chessRowTypeTwoHTML);  
+            //         for(var i = 0; i< numCellsPerRow/2; i++) {
+            //             $("#chessGameboard").append(chessCellTypeTwoHTML)
+            //             $("#chessGameboard").append(chessCellTypeOneHTML)
+            //         }
+            //         $("#chessGameboard").append("</div>");  
+            //     }
+            // }
         });
     </script>
     <footer>
