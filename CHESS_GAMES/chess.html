@@ -58,60 +58,68 @@
         </div>
     </body>
     <script>
-        // jquery to rescue : reduce HTML boilerplate
-        // checkers boilerplate
-        cellBrownHTML = "<div class='cellBrown'></div>"
-        cellTanHTML = "<div class='cellTan'></div>"
-        rowBrownHTML = "<div class='rowBrownStart'>"
-        rowTanHTML = "<div class='rowTanStart'>"
-
-        // chess boilerplate
-        // build color extensibility
-        chessCellTypeOneHTML = "<div class='cellBlue'></div>"
-        chessCellTypeTwoHTML = "<div class='cellWhite'></div>"
-        chessRowTypeOneHTML = "<div class='rowBlueStart'>"
-        chessRowTypeTwoHTML = "<div class='rowWhiteStart'>"
-
-        numCellsPerRow = 8
-        numCellsPerCol = 8
         $(document).ready(function(){
+            // jquery to rescue : reduce HTML boilerplate
+            // checkers boilerplate
+            cellBrownHTML = "<div class='cellBrown'></div>"
+            cellTanHTML = "<div class='cellTan'></div>"
+            rowBrownHTML = "<div class='rowBrownStart'>"
+            rowTanHTML = "<div class='rowTanStart'>"
+
+            // chess boilerplate
+            // build color extensibility
+            chessCellTypeOneHTML = "<div class='cellBlue'></div>"
+            chessCellTypeTwoHTML = "<div class='cellWhite'></div>"
+            chessRowTypeOneHTML = "<div class='rowBlueStart'>"
+            chessRowTypeTwoHTML = "<div class='rowWhiteStart'>"
+
+            numCellsPerRow = 8
+            numCellsPerCol = 8
+            buildCheckersBoardGame()
+            buildChessBoardGame()
 
             // code for checkers
-            for(var repEl = 0; repEl < numCellsPerCol/2; repEl++){
-                // the first type of row
-                $("#checkersGameboard").append(rowBrownHTML);  
-                for(var i = 0; i < numCellsPerRow/2; i++) {
-                    $("#checkersGameboard").append(cellBrownHTML)
-                    $("#checkersGameboard").append(cellTanHTML)
+            function buildCheckersBoardGame() {
+                console.log("Building checkers board game.")
+                for(var repEl = 0; repEl < numCellsPerCol/2; repEl++){
+                    // the first type of row
+                    $("#checkersGameboard").append(rowBrownHTML);  
+                    for(var i = 0; i < numCellsPerRow/2; i++) {
+                        $("#checkersGameboard").append(cellBrownHTML)
+                        $("#checkersGameboard").append(cellTanHTML)
+                    }
+                    $("#checkersGameboard").append("</div>");
+                    // the second type of row
+                    $("#checkersGameboard").append(rowTanHTML);  
+                    for(var i = 0; i< numCellsPerRow/2; i++) {
+                        $("#checkersGameboard").append(cellTanHTML)
+                        $("#checkersGameboard").append(cellBrownHTML)
+                    }
+                    $("#checkersGameboard").append("</div>");  
                 }
-                $("#checkersGameboard").append("</div>");
-                // the second type of row
-                $("#checkersGameboard").append(rowTanHTML);  
-                for(var i = 0; i< numCellsPerRow/2; i++) {
-                    $("#checkersGameboard").append(cellTanHTML)
-                    $("#checkersGameboard").append(cellBrownHTML)
-                }
-                $("#checkersGameboard").append("</div>");  
             }
 
             // code for chess
-            for(var repEl = 0; repEl < numCellsPerCol/2; repEl++){
-                // the first type of row
-                $("#chessGameboard").append(rowBrownHTML);  
-                for(var i = 0; i < numCellsPerRow/2; i++) {
-                    $("#chessGameboard").append(cellBrownHTML)
-                    $("#chessGameboard").append(cellTanHTML)
+            function buildChessBoardGame() {
+                console.log("Building chess board game.")
+                for(var repEl = 0; repEl < numCellsPerCol/2; repEl++){
+                    // the first type of row
+                    $("#chessGameboard").append(chessRowTypeOneHTML);  
+                    for(var i = 0; i < numCellsPerRow/2; i++) {
+                        $("#chessGameboard").append(chessCellTypeOneHTML)
+                        $("#chessGameboard").append(chessCellTypeTwoHTML)
+                    }
+                    $("#chessGameboard").append("</div>");
+                    // the second type of row
+                    $("#chessGameboard").append(chessRowTypeTwoHTML);  
+                    for(var i = 0; i< numCellsPerRow/2; i++) {
+                        $("#chessGameboard").append(chessCellTypeTwoHTML)
+                        $("#chessGameboard").append(chessCellTypeOneHTML)
+                    }
+                    $("#chessGameboard").append("</div>");  
                 }
-                $("#chessGameboard").append("</div>");
-                // the second type of row
-                $("#chessGameboard").append(rowTanHTML);  
-                for(var i = 0; i< numCellsPerRow/2; i++) {
-                    $("#chessGameboard").append(cellTanHTML)
-                    $("#chessGameboard").append(cellBrownHTML)
-                }
-                $("#chessGameboard").append("</div>");  
             }
-        });                
+        });
     </script>
     <footer>
     </footer>
