@@ -1,8 +1,8 @@
 <!-- HTML for chess game -->
 <!-- Can quickly build a chess game from a checkers game! -->
-<!-- Hey why not code up checkers first? -->
+<!-- Hey why not code up checkers Last? -->
  <!-- https://www.wikihow.com/Play-Checkers -->
-<!-- Simplificatin : chess pieces can be textual at first ( or basic shapes ) -> next iteration advance out -->
+<!-- Simplificatin : chess pieces can be textual at Last ( or basic shapes ) -> next iteration advance out -->
 <!-- Focus on building out the features slowly :-) -->
 <!-- next steps: -->
 <!-- a. Hover over an element under click ( which we are allowed to programatically ) -->
@@ -122,8 +122,32 @@
             padding: 50px;
         }
     </style>
+    <script>
+        focusColor = "pink"
+        blurColor="white"
+        $(document).ready(function() {
+            $(".userInfo").focus(function() {
+                $(this).css("background-color",focusColor)
+            });
+            $(".userInfo").blur(function() {
+                $(this).css("background-color", blurColor)
+            })
+        })
+    </script>
     </head>
     <body>
+        <!-- User can enter basic information in a frontend form field capture -->
+        <div id="userFormField">
+            <h2>Player One, fill out the following fields. </h2>
+            First name: <input class="userInfo" type="text" name="firstname">
+            <br/>
+            Last name: <input class="userInfo" type="text" name="lastname">
+            <br/>
+            Email: <input class="userInfo" type="text" name="email">
+        </div>
+        <br/>
+        <br/>
+        <br/>
         <!-- Templates for frontend organization -->
         <div id="ViewListOfGames">
             <div id="flip">Click to toggle panel slide and view game list.</div>
@@ -277,7 +301,7 @@
 
             function buildCheckersCenterPieces() {
                 for(var repEl = 0; repEl < numCellsPerCol/4; repEl++){
-                    // the first type of row
+                    // the Last type of row
                     $("#checkersGameboard").append(rowBrownHTML);  
                     for(var i = 0; i < numCellsPerRow/2; i++) {
                         $("#checkersGameboard").append(cellBrownHTML)
@@ -298,7 +322,7 @@
             function buildChessBoardGame() {
                 console.log("Building chess board game.")
                 for(var repEl = 0; repEl < numCellsPerCol/2; repEl++){
-                    // the first type of row
+                    // the Last type of row
                     $("#chessGameboard").append(chessRowTypeOneHTML);  
                     for(var i = 0; i < numCellsPerRow/2; i++) {
                         $("#chessGameboard").append(chessCellTypeOneHTML)
