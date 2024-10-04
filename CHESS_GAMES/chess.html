@@ -132,14 +132,49 @@
             $(".userInfo").blur(function() {
                 $(this).css("background-color", blurColor)
             })
-        })
+            enterCount = 0
+            leaveCount = 0
+            clickCount = 0
+            enterColor="blue"
+            leaveColor="green"
+            clickColor="red"
+            $("#clickRegion").on({
+                mouseenter: function() {
+                    $(this).css('background-color',enterColor)
+                    enterCount += 1
+                    console.log("Enter count = " + enterCount)
+                },
+                mouseleave: function() {
+                    $(this).css('background-color',leaveColor)
+                    leaveCount += 1
+                    console.log("Leave count = " + leaveCount)
+                },
+                click: function() {
+                    $(this).css('background-color',clickColor)
+                    clickCount += 1
+                    console.log("Click count = " + clickCount)
+                }
+            });
+        });
     </script>
+    <style>
+        #clickRegion {
+            padding: 100px;
+            border: solid 10px purple;
+            border-radius: 50%;
+            text-align: center;
+            font-size: x-large;
+        }
+    </style>
     </head>
     <body>
+        <div id="clickRegion">
+            <p><b>Welcome to fun basic internet games!</b></p>
+        </div>
         <!-- User can enter basic information in a frontend form field capture -->
         <div id="userFormField">
             <h2>Player One, fill out the following fields. </h2>
-            First name: <input class="userInfo" type="text" name="firstname">
+            <b>First name:</b> <input class="userInfo" type="text" name="firstname">
             <br/>
             Last name: <input class="userInfo" type="text" name="lastname">
             <br/>
