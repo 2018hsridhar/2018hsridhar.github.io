@@ -14,6 +14,7 @@
 <html>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <style>
             /* Internal CSS preference */
             h1 {
@@ -102,12 +103,51 @@
             .checkersPiecePlayerTwo:hover {
                 background-color: purple;
             }
+
+        /* A fade in or fade out to select piece colors */
+        /* Scope down to 3 choices ( R-G-B ) */
+        /* How to tell what's selected though? */
+        #panel, #flip {
+            /* Center text always easier to read */
+            text-align: center;
+            background-color: yellow;
+            border: solid 5px black
+        }
+
+        #flip {
+            padding: 10px;
+        }
+
+        #panel {
+            padding: 50px;
+        }
     </style>
     </head>
     <body>
+        <!-- Templates for frontend organization -->
+        <div id="ViewListOfGames">
+            <div id="flip">Click to toggle panel slide and view game list.</div>
+            <div id="panel">
+                <ol>
+                    <li>Chess</li>
+                    <li>Checkers</li>
+                    <li>Upcoming</li>
+                </ol>
+            </div>
+        </div>
+        <div id="selectPieceColor">
+            <h1>Select piece color</h1>
+            <button id="selectColor">Click to fade colors in/out.</button>
+            <div id="div1" style="width:80px;height:80px;background-color:red;"></div>
+            <br>
+            <div id="div2" style="width:80px;height:80px;background-color:green;"></div>
+            <br>
+            <div id="div3" style="width:80px;height:80px;background-color:blue;"></div>
+        </div>
         <div id="checkersGame">
             <h1>A Basic Checkers Game</h1>
-            <p>Two players in the checkers game : each alternates</p>
+            <p id="checkersText">Two players in the checkers game : each alternates</p>
+            <button id="toggle">Toggle text</button>
             <br/>
             <div id="checkersGameboard">
             </div>
@@ -121,10 +161,56 @@
         </div>
     </body>
     <script>
+
+        $(document).ready(function() {
+            $("#flip").click(function() {
+                $("#panel").slideToggle("slow")
+            })
+        });
+
+        // Track state of chess piece colors clicked
+        var divOneClicked = false
+        var divTwoClicked = false
+        var divThreeClicked = false
+
+        function clickHandlerOne() {
+            divOneClicked = true;
+            console.log("One")
+        }
+
+        function clickHandlerTwo() {
+            divTwoClicked = true;
+            console.log("Two")
+        }
+
+        function clickHandlerThree() {
+            divThreeClicked = true;
+            console.log("Three")
+        }
+
+        idList = ["div1","div2","div3"]
+        clickFunctions = [clickHandlerOne, clickHandlerTwo, clickHandlerThree]
+        for(let idx = 0; idx < clickFunctions.length; idx++){
+            id = idList[idx]
+            clickHandler = clickFunctions[idx]
+            var divId = document.getElementById(id)
+            divId.addEventListener('click',clickHandler)
+        }
+        
+        $(document).ready(function() {
+            $("#toggle").click(function() {
+                $("#checkersText").toggle();
+            });
+            $("#selectColor").click(function() {
+                $("#div1").fadeToggle(1000);
+                $("#div2").fadeToggle(2000);
+                $("#div3").fadeToggle(3000);
+            });
+        })
+    </script>
+    <script>
         $(document).ready(function(){
             // jquery to rescue : reduce HTML boilerplate
-            // checkers boilerplate
-            // ideas :
             // a. Place (row,col) information dynamically over each cell under javascript creation
             // b. Execute dynamic retrieval
             cellBrownHTML = "<div class='cellBrown'></div>"
