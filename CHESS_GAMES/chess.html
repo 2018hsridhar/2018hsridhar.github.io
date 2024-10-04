@@ -197,11 +197,15 @@
         <div id="selectPieceColor">
             <h1>Select piece color</h1>
             <button id="selectColor">Click to fade colors in/out.</button>
-            <div id="div1" style="width:80px;height:80px;background-color:red;"></div>
+            <button id="animationDivRight">Click to slide the div elements right.</button>
+            <button id="animationDivLeft">Click to slide the div elements left.</button>
+            <!-- relative position preserving -->
+             <!-- all HTML elements static positioned -->
+            <div id="div1" style="width:80px;height:80px;background-color:red;position:relative;"></div>
             <br>
-            <div id="div2" style="width:80px;height:80px;background-color:green;"></div>
+            <div id="div2" style="width:80px;height:80px;background-color:green;position:relative;"></div>
             <br>
-            <div id="div3" style="width:80px;height:80px;background-color:blue;"></div>
+            <div id="div3" style="width:80px;height:80px;background-color:blue;position:relative;"></div>
         </div>
         <div id="checkersGame">
             <h1>A Basic Checkers Game</h1>
@@ -265,6 +269,36 @@
                 $("#div2").fadeToggle(2000);
                 $("#div3").fadeToggle(3000);
             });
+
+            $("#animationDivRight").click(function() {
+                $("#div1").animate({
+                    left:'250px',
+                    opacity: '0.5',
+                    height: '150px',
+                    width: '150px'
+                });
+                $("#div2").animate({
+                    left:'150px',
+                    opacity: '0.5',
+                    height: '150px',
+                    width: '150px'
+                });
+                $("#div3").animate({
+                    left:'50px',
+                    opacity: '0.5',
+                    height: '150px',
+                    width: '150px'
+                });
+            });
+
+            $("#animationDivLeft").click(function() {
+                $("#div1").animate({
+                    left:'0px'
+                });
+                $("#div2").animate({left:'0px'});
+                $("#div3").animate({left:'0px'});
+            });
+
         })
     </script>
     <script>
